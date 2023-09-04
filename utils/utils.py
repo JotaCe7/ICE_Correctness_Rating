@@ -112,6 +112,7 @@ def replace_show_with_savefig(code, id, output_images_path: str = OUPUT_IMAGES_P
     if '.show()' in code:
         image_path = os.path.join(output_images_path, id + '.png')
         code = code.replace('.show()', '.savefig("' + image_path + '")')
+        code = code + '\n' + 'plt.close()'
     return code
 
 
